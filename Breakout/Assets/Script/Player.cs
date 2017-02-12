@@ -7,25 +7,31 @@ public class Player : MonoBehaviour
 	public float speed = 10;
 	public float limit_top = 0;
 	public float limit_bottom = 0;
-	public float limit_left = 0;
 	public float limit_right = 0;
+	public float limit_left = 0;
 
 	void FixedUpdate ()
 	{
-		Vector3 tmp = GameObject.Find<Player>.transform.position;
-		float x = Input.GetAxis ("Horizontal");
-		float z = Input.GetAxis ("Vertical");
-		// xとyにspeedを掛ける
-		if (x > 0 && tmp.x <= limit_right) {
-			transform.Translate(x * speed, 0, 0);
-		} else if (x < 0 && tmp.x >= limit_left) {
-			transform.Translate(x * speed, 0, 0);
-		}
+		float x = this.transform.position.x;
+		float z = this.transform.position.z;
 
-		if (z > 0 && tmp.z <= limit_top) {
-			transform.Translate(0, 0, z * speed);
-		} else if (z < 0 && tmp.z >= limit_bottom){
-			transform.Translate(0, 0, z * speed);
+		float deltax = Input.GetAxis ("Horizontal");
+		float deltaz = Input.GetAxis ("Vertical");
+
+		// xとyにspeedを掛ける
+		if (limit_right != limit_left) {
+			if (deltax > 0 && x <= limit_right) {
+				transform.Translate (deltax * speed, 0, 0);
+			} else if (deltax < 0 && x >= limit_left) {
+				transform.Translate (deltax * speed, 0, 0);
+			}
+		}
+		if (limit_top != limit_bottom) {
+			if (deltaz > 0 && z <= limit_top) {
+				transform.Translate (0, 0, deltaz * speed);
+			} else if (deltaz < 0 && z >= limit_bottom) {
+				transform.Translate (0, 0, deltaz * speed);
+			}
 		}
 	}
 }
