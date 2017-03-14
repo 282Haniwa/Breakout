@@ -46,11 +46,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Script\BallMoveScript.cs" />
-     <Compile Include="Assets\Script\Block.cs" />
-     <Compile Include="Assets\Script\GameCrearscript.cs" />
+     <Compile Include="Assets\Script\BallScript.cs" />
+     <Compile Include="Assets\Script\BlockScript.cs" />
+     <Compile Include="Assets\Script\BottomScript.cs" />
+     <Compile Include="Assets\Script\GameScript.cs" />
      <Compile Include="Assets\Script\Player.cs" />
      <Compile Include="Assets\Script\Player2.cs" />
+     <Compile Include="Assets\Script\StartScript.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
